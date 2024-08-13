@@ -19,12 +19,11 @@ const server = http.createServer((request, response) => {
       email: "john.doe@gmail.com"
     });
 
-    return response
-      .setHeader('Content-Type', 'application/json')
-      .end(JSON.stringify(users));
+
+    return response.writeHead(201).end();
   }
 
-  return response.end("");
+  return response.writeHead(404).end();
 });
 
 server.listen(3333);
